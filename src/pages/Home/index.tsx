@@ -25,12 +25,14 @@ type HomeProps = {}
 function Home({} : HomeProps) {
 
     const [data, setdata] = useState<DataArticel[]>()
+    const url = process.env.REACT_APP_PUBLIC_URL
+
+    // console.log({url});
+    
     
     useEffect(() => {
         axios
-            .get(
-                `https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey=cfbfa1105d6c4c0a8506a561173dc856`
-            )
+            .get(`${url}`)
             .then((res) => {
                 setdata(res.data.articles)
 
@@ -57,8 +59,8 @@ function Home({} : HomeProps) {
                 <Content className='content-wrap'>
                     {data?.map((item, i)=>{
                         return (
-                            <a href={item.url}>
-                                <div className='content' key={i}>
+                            <a href={item.url} key={i}>
+                                <div className='content' >
                                     <div className='image'>
                                         <img src={item.urlToImage} className='image-content'/>
                                     </div>
