@@ -1,4 +1,4 @@
-## Tickitz-Frontend
+## Eigen Frontend Challenge
 
 This is a Frontend Challenge from eigen part for [api](https://newsapi.org/).
 
